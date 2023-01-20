@@ -1,4 +1,4 @@
-## bKash Payment Gateway Integration with Laravel 7
+## Checkout bKash Payment Gateway Integration with Laravel 8
 
 ## Clone this repo
 ```
@@ -7,7 +7,7 @@ https://github.com/alaminatik/checkout-bKash
 
 ## Install composer packages
 ```
-$ cd laravel-bkash
+$ cd checkout-bKash
 $ composer install
 ```
 
