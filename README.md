@@ -2,7 +2,7 @@
 
 ## Clone this repo
 ```
-https://github.com/samironbarai/laravel-bkash.git
+https://github.com/alaminatik/checkout-bKash
 ```
 
 ## Install composer packages
