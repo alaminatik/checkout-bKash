@@ -26,7 +26,7 @@ php artisan make:factory PaymentFactory --model=Payment
 
 This will generate file in database/factories/PaymentFactory.php
 
-Add protected $model = Payment::class;
+Add protected $model = Payment::class
 Add fake data for each column
 
 Add a seeder For PaymentTable by running command below.
@@ -46,6 +46,7 @@ php artisan db:seed --class=PaymentTableSeeder
 create config.json file to storage/app/public
 put credentials
 
+Lets Test
 ```
 
 
