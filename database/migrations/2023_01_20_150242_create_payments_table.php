@@ -20,6 +20,7 @@ class CreatePaymentsTable extends Migration
             $table->decimal('amount', 12, 2);
             $table->string('invoice');
             $table->string('trxID')->nullable();
+            $table->string('error_message')->nullable();
             $table->string('status');
             $table->timestamps();
         });

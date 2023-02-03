@@ -150,11 +150,25 @@ class PaymentController extends Controller
         echo $resultdatax;
     }
 
-    protected function _updateOrderStatus($resultdatax)
+    protected function _updateOrderStatus($resultdata)
     {
-        $resultdatax = json_decode($resultdatax);
+        $resultdatax = json_decode($resultdata);
 
-        if ($resultdatax && $resultdatax->paymentID != null && $resultdatax->transactionStatus == 'Completed') {
+        // For Fail Payment like Insufficient Balance 
+       
+        if(isset($resultdatax) && !isset($resultdatax->paymentID) && isset($resultdatax->errorCode)){
+            
+            $payment = new Payment;
+            $payment->error_message = $resultdatax->errorMessage;
+            $payment->status = 'failure';
+            $payment->save();           
+
+        }
+
+
+        // For Succesfull Payment
+
+        if(isset($resultdatax) && isset($resultdatax->paymentID) && $resultdatax->paymentID != null && isset($resultdatax->transactionStatus) && $resultdatax->transactionStatus == 'Completed'){
             DB::table('payments')->where([
                 'invoice' => $resultdatax->merchantInvoiceNumber
             ])->update([
